@@ -1,14 +1,19 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"strconv"
+	"sync"
+	"time"
 
 	"github.com/go-redis/redis/v8"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -16,10 +21,14 @@ import (
 
 var DB *sql.DB
 var RedisClient *redis.Client
+var ctx = context.Background()
+
+// Define a map to cache books in service layer
+var bookCacheMap sync.Map
 
 // Book struct represents a book
 type Book struct {
-	ID          int    `json:"id"`
+	ID          int64  `json:"id"`
 	Title       string `json:"title"`
 	Author      string `json:"author"`
 	Publication string `json:"publication"`
@@ -44,9 +53,9 @@ func ConnectToDB() {
 	}
 
 	// Set maximum open connections
-	db.SetMaxOpenConns(10) // Adjust as needed
+	db.SetMaxOpenConns(10)
 	// Set maximum idle connections
-	db.SetMaxIdleConns(10) // Adjust as needed
+	db.SetMaxIdleConns(10)
 
 	// Verify database connection
 	err = db.Ping()
@@ -56,6 +65,49 @@ func ConnectToDB() {
 
 	DB = db
 	fmt.Println("Connected to database")
+}
+func ConnectToDBWithRetry() {
+	// Read database credentials from environment variables
+	dbUser := os.Getenv("DBUsername")
+	dbPass := os.Getenv("DBPassword")
+	dbHost := os.Getenv("DBHost")
+	dbPort := os.Getenv("DBPort")
+	dbName := os.Getenv("DBName")
+
+	// Create data source name
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", dbUser, dbPass, dbHost, dbPort, dbName)
+	// Set the maximum number of retries and retry interval
+	maxRetries := 5
+	retryInterval := 3 * time.Second
+
+	for i := 1; i <= maxRetries; i++ {
+		// Add a delay before each retry
+		time.Sleep(retryInterval)
+
+		// Attempt to connect to the database
+		db, err := sql.Open("mysql", dsn)
+		if err == nil {
+			// Set maximum open connections
+			db.SetMaxOpenConns(10)
+			// Set maximum idle connections
+			db.SetMaxIdleConns(10)
+
+			// Verify database connection
+			err = db.Ping()
+			if err != nil {
+				log.Fatal(err)
+			}
+			// Connection successful
+			fmt.Println("Database Connected")
+			DB = db
+			return
+		}
+		// Log the error, and retry
+		fmt.Printf("Error connecting to DB: %v. Retrying...\n", err)
+
+	}
+	fmt.Printf("Failed to connect DB")
+
 }
 
 // ConnectToRedis establishes a connection to the Redis database.
@@ -84,26 +136,6 @@ func ConnectToRedis() {
 	fmt.Println("Connected to Redis")
 }
 
-// createTables creates necessary tables if they don't exist in the database.
-func CreateTable() {
-	// Define SQL statements to create tables
-	createBookTableSQL := `
-	CREATE TABLE IF NOT EXISTS books (
-		id INT AUTO_INCREMENT PRIMARY KEY,
-		title VARCHAR(255) NOT NULL,
-		author VARCHAR(255) NOT NULL,
-		publication VARCHAR(255) NOT NULL
-	)`
-
-	// Execute SQL statements to create tables
-	_, err := DB.Exec(createBookTableSQL)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Tables created successfully")
-}
-
 func main() {
 	// Initialize Echo
 	e := echo.New()
@@ -111,9 +143,9 @@ func main() {
 	// Load the .env file in the current directory
 	godotenv.Load()
 
-	ConnectToDB()
 	ConnectToRedis()
-	CreateTable()
+	ConnectToDBWithRetry()
+	PopulateBookCacheMap()
 
 	// Middleware
 	e.Use(middleware.Logger())
@@ -137,12 +169,16 @@ func getBookFromDB(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Book ID is required"})
 	}
 
+	parsedId, err := strconv.ParseInt(bookID, 0, 0)
+	if err != nil && bookID != "" {
+		return err
+	}
 	// Query the database to retrieve the book with the specified ID
-	row := DB.QueryRow("SELECT id, title, author FROM books WHERE id = ?", bookID)
+	row := DB.QueryRow("SELECT id, title, author,publication FROM books WHERE id = ?", parsedId)
 
 	// Scan the row into a Book struct
 	var book Book
-	err := row.Scan(&book.ID, &book.Title, &book.Author)
+	err = row.Scan(&book.ID, &book.Title, &book.Author, &book.Publication)
 	if err == sql.ErrNoRows {
 		return c.JSON(http.StatusNotFound, map[string]string{"error": "Book not found"})
 	} else if err != nil {
@@ -154,32 +190,123 @@ func getBookFromDB(c echo.Context) error {
 }
 
 func getBooksFromRedis(c echo.Context) error {
-
-	val, err := RedisClient.Get(c.Request().Context(), "books").Result()
-	if err != nil {
-		log.Fatal(err)
+	// Retrieve book ID from query parameter
+	bookID := c.QueryParam("id")
+	if bookID == "" {
+		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Book ID is required"})
+	}
+	parsedId, err := strconv.ParseInt(bookID, 0, 0)
+	if err != nil && bookID != "" {
+		return err
 	}
 
-	// Parse JSON string to []Book
-	var books []Book
-	err = json.Unmarshal([]byte(val), &books)
-	if err != nil {
-		log.Fatal(err)
+	cacheKey := fmt.Sprintf("%d", parsedId)
+	if book, err := CheckInCache(cacheKey); err == nil {
+		return c.JSON(http.StatusOK, book)
 	}
 
-	return c.JSON(http.StatusOK, books)
+	// Query the database to retrieve the book with the specified ID
+	row := DB.QueryRow("SELECT id, title, author,publication FROM books WHERE id = ?", bookID)
+
+	// Scan the row into a Book struct
+	var book Book
+	err = row.Scan(&book.ID, &book.Title, &book.Author, &book.Publication)
+	if err == sql.ErrNoRows {
+		return c.JSON(http.StatusNotFound, map[string]string{"error": "Book not found"})
+	} else if err != nil {
+		log.Fatal(err)
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Internal Server Error"})
+	}
+
+	if err := SetInCache(book, cacheKey); err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, book)
 }
 
 func getBooksFromMap(c echo.Context) error {
-	// Implement your service layer logic here
-	// You can use raw SQL queries to fetch data from the database
-	// and store it in a map or any other data structure
-	// Here, we just return a placeholder response
-	books := []Book{
-		{ID: 1, Title: "Book 1", Author: "Author 1"},
-		{ID: 2, Title: "Book 2", Author: "Author 2"},
-		{ID: 3, Title: "Book 3", Author: "Author 3"},
+	// Retrieve book ID from query parameter
+	bookID := c.QueryParam("id")
+	if bookID == "" {
+		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Book ID is required"})
+	}
+	parsedId, err := strconv.ParseInt(bookID, 0, 0)
+	if err != nil && bookID != "" {
+		return err
 	}
 
-	return c.JSON(http.StatusOK, books)
+	if cachedBook, ok := bookCacheMap.Load(parsedId); ok {
+		return c.JSON(http.StatusOK, cachedBook.(Book))
+	}
+
+	// Query the database to retrieve the book with the specified ID
+	row := DB.QueryRow("SELECT id, title, author,publication FROM books WHERE id = ?", bookID)
+
+	// Scan the row into a Book struct
+	var book Book
+	err = row.Scan(&book.ID, &book.Title, &book.Author, &book.Publication)
+	if err == sql.ErrNoRows {
+		return c.JSON(http.StatusNotFound, map[string]string{"error": "Book not found"})
+	} else if err != nil {
+		log.Fatal(err)
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": "Internal Server Error"})
+	}
+
+	bookCacheMap.Store(book.ID, book)
+
+	return c.JSON(http.StatusOK, book)
+}
+
+func CheckInCache(cacheKey string) (book Book, err error) {
+	cachedData, err := RedisClient.Get(ctx, cacheKey).Result()
+	if err == nil {
+		var book Book
+		err := json.Unmarshal([]byte(cachedData), &book)
+		if err != nil {
+			return Book{}, err
+		}
+		return book, nil
+	}
+	return Book{}, err
+}
+
+func SetInCache(book Book, cacheKey string) error {
+	jsonData, err := json.Marshal(book)
+	if err != nil {
+		return err
+	}
+	if _, err := RedisClient.Set(ctx, cacheKey, jsonData, time.Hour).Result(); err != nil {
+		return err
+	}
+	return nil
+}
+
+// Function to populate the map with books from the database
+func PopulateBookCacheMap() {
+	// Query the database to retrieve all books
+	rows, err := DB.Query("SELECT * FROM books")
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	defer rows.Close()
+
+	// Iterate over the rows
+	for rows.Next() {
+		var book Book
+		// Scan the row into the Book struct
+		err := rows.Scan(&book.ID, &book.Title, &book.Author, &book.Publication)
+		if err != nil {
+			log.Fatal(err)
+			continue
+		}
+		// Store the book in the cache map
+		bookCacheMap.Store(book.ID, book)
+	}
+	// Check for errors during iteration
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+		return
+	}
 }

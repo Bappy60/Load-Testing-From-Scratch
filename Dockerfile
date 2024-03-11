@@ -1,4 +1,4 @@
-FROM golang:1.20.3-alpine
+FROM golang:1.22.1-alpine
 ENV GO111MODULE=on
 
 RUN mkdir /app
@@ -13,6 +13,6 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o /app .
+RUN go build -o app .
 EXPOSE 9011
-CMD ["/app"]
+CMD ["./app"]
