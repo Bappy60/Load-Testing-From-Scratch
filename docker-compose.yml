@@ -1,0 +1,57 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0.32
+    container_name: mysql
+    restart: always
+    env_file:
+      - app.env
+    environment:
+      MYSQL_ROOT_PASSWORD: viva#1919
+      MYSQL_DATABASE: demodb
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./sql_scripts:/docker-entrypoint-initdb.d
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'  # Limit CPU usage to 0.5 cores
+          memory: 512M  # Limit memory usage to 512 MB
+
+  redis:
+    image: redis:7.0.10
+    container_name: redis
+    restart: always
+    env_file:
+      - app.env
+    ports:
+      - "6379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'  # Limit CPU usage to 0.5 cores
+          memory: 256M  # Limit memory usage to 256 MB
+
+  book-store:
+    build: .
+    container_name: app
+    ports:
+      - "9011:9011"
+    env_file:
+      - app.env
+    depends_on:
+      - mysql
+      - redis
+    links:
+      - mysql
+      - redis
+    deploy:
+      resources:
+        limits:
+          cpus: '1'  # Limit CPU usage to 1 core
+          memory: 1G  # Limit memory usage to 1 GB
+
+volumes:
+  db_data:
