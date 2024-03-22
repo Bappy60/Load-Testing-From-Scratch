@@ -88,9 +88,9 @@ func ConnectToDBWithRetry() {
 		db, err := sql.Open("mysql", dsn)
 		if err == nil {
 			// Set maximum open connections
-			db.SetMaxOpenConns(10)
+			db.SetMaxOpenConns(20)
 			// Set maximum idle connections
-			db.SetMaxIdleConns(10)
+			db.SetMaxIdleConns(20)
 
 			// Verify database connection
 			err = db.Ping()
