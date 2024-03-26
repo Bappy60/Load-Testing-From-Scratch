@@ -37,6 +37,7 @@ services:
   app:
     build: .
     container_name: app
+    restart: always
     ports:
       - "9011:9011"
     env_file:
@@ -52,6 +53,24 @@ services:
         limits:
           cpus: '1'  # Limit CPU usage to 1 core
           memory: 1G  # Limit memory usage to 1 GB
+    volumes:   
+      - app_data:/app/data
 
-volumes:
+  load_test_server:
+    build:
+      context: ./load_test
+      dockerfile: ./Dockerfile
+    ports:
+      - "9012:9012"
+    deploy:
+      resources:
+        limits:
+          cpus: '3'  # Limit CPU usage to 1 core
+          memory: 2G  # Limit memory usage to 1 GB
+    volumes:  
+      - load_test_tool_data:/load_test/data
+
+volumes:    
+  load_test_tool_data:
+  app_data:
   load_test_db_data:

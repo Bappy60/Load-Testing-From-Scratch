@@ -11,7 +11,6 @@ import (
 	"strconv"
 	"sync"
 	"time"
-
 	"github.com/go-redis/redis/v8"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
@@ -139,6 +138,7 @@ func ConnectToRedis() {
 func main() {
 	// Initialize Echo
 	e := echo.New()
+	
 
 	// Load the .env file in the current directory
 	godotenv.Load()

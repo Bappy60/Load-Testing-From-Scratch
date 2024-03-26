@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"net/http"
 	"runtime"
 	"strconv"
@@ -12,15 +13,22 @@ import (
 )
 
 // Define the error counter as an int64 global variable
-var errCounter int64
+var (
+	errCounter  int64
+	errCounterM sync.Mutex // Mutex for error counter
+)
 
 // Retrieve the current value of the error counter
 func getErrorCounter() int64 {
+	errCounterM.Lock()
+	defer errCounterM.Unlock()
 	return errCounter
 }
 
 // Increment the error counter
 func incrementErrorCounter() {
+	errCounterM.Lock()
+	defer errCounterM.Unlock()
 	errCounter++
 }
 
@@ -101,20 +109,31 @@ type StatusCodeMetrics struct {
 	MaxLatency time.Duration
 	SumLatency time.Duration // sum of latencies for this status code
 }
+type ResponseStatusCodeMetrics struct {
+	Count      int // number of requests with this status code
+	MinLatency string
+	MaxLatency string
+	SumLatency string // sum of latencies for this status code
+}
 
 // LoadTestMetrics holds the load test metrics
 type LoadTestMetrics struct {
-	TotalRequests     int                       `json:"total_requests"`
-	AverageLatency    time.Duration             `json:"average_latency"`
-	RequestsPerSecond int                       `json:"requests_per_second"`
-	MinLatency        time.Duration             `json:"min_latency"`
-	MaxLatency        time.Duration             `json:"max_latency"`
-	ErrorRate         float64                   `json:"error_rate"`
-	StatusMetrics     map[int]*StatusCodeMetrics `json:"status_metrics"`
+	TotalRequests     int                                `json:"total_requests"`
+	AverageLatency    string                             `json:"average_latency"`
+	RequestsPerSecond int                                `json:"requests_per_second"`
+	MinLatency        string                             `json:"min_latency"`
+	MaxLatency        string                             `json:"max_latency"`
+	ErrorRate         float64                            `json:"error_rate"`
+	ResStatusMetrics  map[int]*ResponseStatusCodeMetrics `json:"status_metrics"`
 }
 
 // LoadTestHandler handles the load testing
 func LoadTestHandler(c echo.Context) error {
+	// Reset error counter before starting a new test
+	errCounterM.Lock()
+	errCounter = 0
+	errCounterM.Unlock()
+
 	// Parse query parameters
 	url := c.QueryParam("url")
 	rps, err := strconv.Atoi(c.QueryParam("rps"))
@@ -153,6 +172,7 @@ func LoadTestHandler(c echo.Context) error {
 
 	// Create a map to store status code metrics
 	statusMetrics := make(map[int]*StatusCodeMetrics)
+	statusMetricsM := sync.Mutex{} // Mutex for statusMetrics
 
 	// Create and run workers
 	for i := 0; i < workers; i++ {
@@ -168,53 +188,79 @@ func LoadTestHandler(c echo.Context) error {
 	close(results)
 
 	// Collect and print metrics
-	var minLatency, maxLatency, sumLatency int64
-	minLatency = 1<<63 - 1 // max int64 value
+	var minLatency, maxLatency time.Duration
+	// Declare a variable to store the sum of latencies
+	var sumLatency time.Duration
+	minLatency = time.Duration(math.MaxInt64)
+	totalErrors := getErrorCounter()
 
 	// Iterate over the results
 	for result := range results {
-		// if result.err != nil {
-		// 	totalErrors++
-		// }
-		sumLatency += int64(result.latency)
-		if result.latency < time.Duration(minLatency) {
-			minLatency = int64(result.latency)
+		if result.err != nil {
+			incrementErrorCounter()
+			continue
 		}
-		if result.latency > time.Duration(maxLatency) {
-			maxLatency = int64(result.latency)
+		// Add the latency to the sum
+		sumLatency += result.latency
+
+		if result.latency < minLatency {
+			minLatency = result.latency
+		}
+		if result.latency > maxLatency {
+			maxLatency = result.latency
 		}
 
 		// Update status code metrics
+		statusMetricsM.Lock()
 		if _, ok := statusMetrics[result.status]; !ok {
 			statusMetrics[result.status] = &StatusCodeMetrics{
 				Count:      0,
-				MinLatency: 1<<63 - 1,
+				MinLatency: time.Duration(math.MaxInt64),
 				MaxLatency: 0,
 				SumLatency: 0,
 			}
 		}
 		statusMetrics[result.status].Count++
 		statusMetrics[result.status].SumLatency += result.latency
-		if result.latency < time.Duration(statusMetrics[result.status].MinLatency) {
+		if result.latency < statusMetrics[result.status].MinLatency {
 			statusMetrics[result.status].MinLatency = result.latency
 		}
-		if result.latency > time.Duration(statusMetrics[result.status].MaxLatency) {
+		if result.latency > statusMetrics[result.status].MaxLatency {
 			statusMetrics[result.status].MaxLatency = result.latency
 		}
+		statusMetricsM.Unlock()
 	}
-	avgLatency := float64(sumLatency) / float64(totalRequests)
 
+	// Calculate average latency
+	avgLatency := time.Duration(0)
+	if totalRequests > 0 {
+		avgLatency = sumLatency / time.Duration(totalRequests)
+	}
+
+	// Calculate error rate
+	errorRate := float64(totalErrors) / float64(totalRequests) * 100
+
+	resStatusMetrics := make(map[int]*ResponseStatusCodeMetrics)
+	for status, metrics := range statusMetrics {
+		resStatusMetrics[status] = &ResponseStatusCodeMetrics{
+			Count:      metrics.Count,
+			MinLatency: metrics.MinLatency.String(),
+			MaxLatency: metrics.MaxLatency.String(),
+			SumLatency: metrics.SumLatency.String(),
+		}
+	}
 	// Create the LoadTestMetrics struct
 	loadTestMetrics := LoadTestMetrics{
 		TotalRequests:     totalRequests,
-		AverageLatency:    time.Duration(avgLatency),
+		AverageLatency:    avgLatency.String(),
 		RequestsPerSecond: rps,
-		MinLatency:        time.Duration(minLatency),
-		MaxLatency:        time.Duration(maxLatency),
-		ErrorRate:         float64(getErrorCounter()) / float64(totalRequests) * 100,
-		StatusMetrics:     statusMetrics,
+		MinLatency:        minLatency.String(),
+		MaxLatency:        maxLatency.String(),
+		ErrorRate:         errorRate,
+		ResStatusMetrics:  resStatusMetrics,
 	}
 
+	// Return load test metrics as JSON
 	return c.JSON(http.StatusOK, loadTestMetrics)
 }
 
@@ -229,4 +275,3 @@ func main() {
 	// Start server
 	e.Logger.Fatal(e.Start(":9012"))
 }
-
