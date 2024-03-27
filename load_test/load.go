@@ -8,7 +8,8 @@ import (
 	"strconv"
 	"sync"
 	"time"
-
+    "encoding/csv"
+    "os"
 	"github.com/labstack/echo/v4"
 )
 
@@ -100,6 +101,28 @@ func (w *Worker) Run(results chan<- Result, duration time.Duration) {
 			time.Sleep(sleepDuration)
 		}
 	}
+}
+
+// Write metrics to a CSV file
+func writeMetricsToCSV(url string, rps int, duration int, metricsJSON string) error {
+	// Open the CSV file for writing in append mode
+	file, err := os.OpenFile("metrics.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	// Create a CSV writer
+	writer := csv.NewWriter(file)
+	defer writer.Flush()
+
+	// Write metrics to the CSV file
+	err = writer.Write([]string{url, strconv.Itoa(rps), strconv.Itoa(duration), metricsJSON})
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Define a struct to store the status code metrics
