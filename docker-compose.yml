@@ -8,9 +8,9 @@ services:
       - .env
     environment:
       MYSQL_ROOT_PASSWORD: viva#1919
-      MYSQL_DATABASE: demodb2
+      MYSQL_DATABASE: demodb2 
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - load_test_db_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
