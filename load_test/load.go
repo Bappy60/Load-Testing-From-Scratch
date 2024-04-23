@@ -120,6 +120,10 @@ func writeMetricsToCSV(url string, metrics LoadTestMetrics) error {
 	record = append(record, metrics.MinLatency)
 	record = append(record, metrics.MaxLatency)
 	record = append(record, fmt.Sprintf("%.2f", metrics.ErrorRate))
+	record = append(record, metrics.P50)
+	record = append(record, metrics.P90)
+	record = append(record, metrics.P95)
+	record = append(record, metrics.P99)
 
 	// Convert ResponseStatusCodeMetrics to a slice of strings
 	for statusCode, statusMetrics := range metrics.ResStatusMetrics {
@@ -371,7 +375,7 @@ func main() {
 	// Graceful shutdown handling
 	go func() {
 		// Monitor for shutdown signal (e.g., SIGINT, SIGTERM)
-		quit := make(chan os.Signal,1)
+		quit := make(chan os.Signal, 1)
 		signal.Notify(quit, os.Interrupt, os.Interrupt, syscall.SIGTERM)
 		<-quit
 		log.Println("Shutdown signal received, initiating graceful shutdown...")

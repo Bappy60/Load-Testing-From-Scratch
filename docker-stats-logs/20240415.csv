@@ -1,0 +1,280 @@
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     1.762MiB / 1GiB     0.17%     23.9kB / 9.06kB   0B / 24.6kB      5
+b2e296a96561   mysql_db                                       0.90%     371.1MiB / 512MiB   72.47%    28.4kB / 8.64kB   459kB / 15.2MB   41
+3ddf6b553d50   redis                                          0.23%     2.645MiB / 256MiB   1.03%     21.1kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     1.578MiB / 2GiB     0.08%     19.8kB / 0B       0B / 4.1kB       9
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     1.762MiB / 1GiB     0.17%     23.9kB / 9.13kB   0B / 24.6kB      5
+b2e296a96561   mysql_db                                       0.97%     371.1MiB / 512MiB   72.47%    28.4kB / 8.71kB   459kB / 15.2MB   41
+3ddf6b553d50   redis                                          0.23%     2.645MiB / 256MiB   1.03%     21.1kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     1.578MiB / 2GiB     0.08%     19.8kB / 0B       0B / 4.1kB       9
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     1.762MiB / 1GiB     0.17%     23.9kB / 9.13kB   0B / 24.6kB      5
+b2e296a96561   mysql_db                                       0.97%     371.1MiB / 512MiB   72.47%    28.4kB / 8.71kB   459kB / 15.2MB   41
+3ddf6b553d50   redis                                          0.19%     2.645MiB / 256MiB   1.03%     21.1kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     1.578MiB / 2GiB     0.08%     19.8kB / 0B       0B / 4.1kB       9
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     1.762MiB / 1GiB     0.17%     24kB / 9.21kB     0B / 24.6kB      5
+b2e296a96561   mysql_db                                       0.81%     371.1MiB / 512MiB   72.47%    28.5kB / 8.79kB   459kB / 15.2MB   41
+3ddf6b553d50   redis                                          0.17%     2.645MiB / 256MiB   1.03%     21.1kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     1.578MiB / 2GiB     0.08%     19.8kB / 0B       0B / 4.1kB       9
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O        PIDS
+5cff13a5cff0   app                                            5.56%     5.93MiB / 1GiB      0.58%     291kB / 175kB   0B / 24.6kB      11
+b2e296a96561   mysql_db                                       4.56%     410.7MiB / 512MiB   80.22%    100kB / 174kB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     21.2kB / 726B   0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   7.86%     8.09MiB / 2GiB      0.40%     114kB / 101kB   0B / 4.1kB       15
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O        PIDS
+5cff13a5cff0   app                                            4.31%     7.203MiB / 1GiB     0.70%     676kB / 405kB   0B / 24.6kB      12
+b2e296a96561   mysql_db                                       3.76%     410.7MiB / 512MiB   80.22%    190kB / 408kB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.14%     2.645MiB / 256MiB   1.03%     21.2kB / 726B   0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   4.68%     9.727MiB / 2GiB     0.47%     255kB / 253kB   0B / 4.1kB       18
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     7.203MiB / 1GiB     0.70%     676kB / 405kB   0B / 24.6kB      12
+b2e296a96561   mysql_db                                       1.00%     410.7MiB / 512MiB   80.22%    190kB / 408kB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     21.2kB / 726B   0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     9.75MiB / 2GiB      0.48%     255kB / 253kB   0B / 4.1kB       18
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.11%     7.203MiB / 1GiB     0.70%     676kB / 405kB   0B / 24.6kB      12
+b2e296a96561   mysql_db                                       1.03%     410.7MiB / 512MiB   80.22%    190kB / 408kB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.25%     2.645MiB / 256MiB   1.03%     21.2kB / 726B   0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     9.75MiB / 2GiB      0.48%     255kB / 253kB   0B / 8.19kB      18
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     7.203MiB / 1GiB     0.70%     676kB / 405kB   0B / 24.6kB      12
+b2e296a96561   mysql_db                                       0.49%     410.7MiB / 512MiB   80.22%    190kB / 408kB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.13%     2.645MiB / 256MiB   1.03%     21.4kB / 726B   0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     9.75MiB / 2GiB      0.48%     255kB / 253kB   0B / 8.19kB      18
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     7.203MiB / 1GiB     0.70%     677kB / 405kB   0B / 24.6kB      12
+b2e296a96561   mysql_db                                       0.98%     410.7MiB / 512MiB   80.22%    191kB / 408kB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.645MiB / 256MiB   1.03%     22kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     9.75MiB / 2GiB      0.48%     256kB / 253kB   0B / 8.19kB      18
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O          BLOCK I/O        PIDS
+5cff13a5cff0   app                                            14.69%    12.09MiB / 1GiB     1.18%     1.32MB / 792kB   0B / 24.6kB      14
+b2e296a96561   mysql_db                                       11.09%    410.7MiB / 512MiB   80.22%    343kB / 794kB    459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.11%     2.645MiB / 256MiB   1.03%     22kB / 726B      0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   16.01%    20.59MiB / 2GiB     1.01%     491kB / 506kB    0B / 8.19kB      18
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            17.06%    17.02MiB / 1GiB     1.66%     3.24MB / 1.96MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       13.10%    410.7MiB / 512MiB   80.22%    804kB / 1.96MB    459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.18%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   21.96%    27.2MiB / 2GiB      1.33%     1.19MB / 1.26MB   0B / 8.19kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     18.76MiB / 1GiB     1.83%     3.89MB / 2.35MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.82%     410.7MiB / 512MiB   80.22%    959kB / 2.35MB    459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.20%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     27.51MiB / 2GiB     1.34%     1.43MB / 1.52MB   0B / 8.19kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     18.76MiB / 1GiB     1.83%     3.89MB / 2.35MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.81%     410.7MiB / 512MiB   80.22%    959kB / 2.35MB    459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.20%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.01%     27.51MiB / 2GiB     1.34%     1.43MB / 1.52MB   0B / 8.19kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            67.91%    33.5MiB / 1GiB      3.27%     7MB / 4.2MB       0B / 24.6kB      19
+b2e296a96561   mysql_db                                       50.96%    410.8MiB / 512MiB   80.23%    1.66MB / 4.11MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   56.18%    51.54MiB / 2GiB     2.52%     2.58MB / 2.88MB   0B / 12.3kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            56.52%    40.39MiB / 1GiB     3.94%     10MB / 6.05MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       50.30%    410.8MiB / 512MiB   80.23%    2.43MB / 6.02MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.23%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   24.07%    60.39MiB / 2GiB     2.95%     3.67MB / 3.97MB   0B / 12.3kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     40.22MiB / 1GiB     3.93%     10.3MB / 6.27MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.92%     410.7MiB / 512MiB   80.22%    2.53MB / 6.28MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.18%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.03%     59.38MiB / 2GiB     2.90%     3.78MB / 4.04MB   0B / 12.3kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     40.22MiB / 1GiB     3.93%     10.3MB / 6.27MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.99%     410.7MiB / 512MiB   80.22%    2.53MB / 6.28MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.27%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     59.38MiB / 2GiB     2.90%     3.78MB / 4.04MB   0B / 16.4kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     40.22MiB / 1GiB     3.93%     10.3MB / 6.27MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.92%     410.7MiB / 512MiB   80.22%    2.53MB / 6.28MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     59.38MiB / 2GiB     2.90%     3.78MB / 4.04MB   0B / 16.4kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            38.89%    44.58MiB / 1GiB     4.35%     11.9MB / 7.19MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       29.11%    410.8MiB / 512MiB   80.23%    2.87MB / 7.15MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.13%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   38.94%    71.1MiB / 2GiB      3.47%     4.36MB / 4.72MB   0B / 16.4kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            69.85%    61.91MiB / 1GiB     6.05%     16.4MB / 9.83MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       50.06%    410.8MiB / 512MiB   80.23%    3.85MB / 9.6MB    459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.20%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   80.23%    102.8MiB / 2GiB     5.02%     6.01MB / 6.72MB   0B / 16.4kB      19
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            67.58%    74.76MiB / 1GiB     7.30%     19.4MB / 11.7MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       31.54%    410.8MiB / 512MiB   80.23%    4.67MB / 11.7MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.17%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   293.20%   107MiB / 2GiB       5.22%     7.1MB / 7.7MB     0B / 16.4kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     73.62MiB / 1GiB     7.19%     20MB / 12.1MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.16%     410.7MiB / 512MiB   80.22%    4.85MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.02%     104.5MiB / 2GiB     5.10%     7.3MB / 7.83MB    0B / 16.4kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     73.62MiB / 1GiB     7.19%     20MB / 12.1MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.81%     410.7MiB / 512MiB   80.22%    4.85MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.20%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     104.5MiB / 2GiB     5.10%     7.3MB / 7.83MB    0B / 20.5kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     73.62MiB / 1GiB     7.19%     20MB / 12.1MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.15%     410.7MiB / 512MiB   80.22%    4.85MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.27%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     104.5MiB / 2GiB     5.10%     7.3MB / 7.83MB    0B / 20.5kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     73.62MiB / 1GiB     7.19%     20MB / 12.1MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.13%     410.7MiB / 512MiB   80.22%    4.85MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.27%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     104.4MiB / 2GiB     5.10%     7.3MB / 7.83MB    0B / 20.5kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     73.62MiB / 1GiB     7.19%     20MB / 12.1MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.11%     410.7MiB / 512MiB   80.22%    4.85MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.26%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     104.4MiB / 2GiB     5.10%     7.3MB / 7.83MB    0B / 20.5kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     73.62MiB / 1GiB     7.19%     20MB / 12.1MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.96%     410.7MiB / 512MiB   80.22%    4.86MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.21%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     104.4MiB / 2GiB     5.10%     7.3MB / 7.83MB    0B / 20.5kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     73.62MiB / 1GiB     7.19%     20MB / 12.1MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.81%     410.7MiB / 512MiB   80.22%    4.86MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.17%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     104.4MiB / 2GiB     5.10%     7.3MB / 7.83MB    0B / 20.5kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            2.14%     74.93MiB / 1GiB     7.32%     20.1MB / 12.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.91%     410.7MiB / 512MiB   80.22%    4.86MB / 12.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.17%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   23.45%    117.4MiB / 2GiB     5.73%     7.34MB / 7.9MB    0B / 20.5kB      62
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            10.79%    75.58MiB / 1GiB     7.38%     21.8MB / 13.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.88%     410.7MiB / 512MiB   80.22%    5.25MB / 13.2MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.19%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   289.24%   108.6MiB / 2GiB     5.30%     8MB / 8.65MB      0B / 20.5kB      63
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            50.39%    83.46MiB / 1GiB     8.15%     25.6MB / 15.5MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       30.00%    410.7MiB / 512MiB   80.22%    6.2MB / 15.5MB    459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.20%     2.895MiB / 256MiB   1.13%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   305.05%   139.8MiB / 2GiB     6.82%     9.38MB / 10.1MB   0B / 20.5kB      69
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            13.56%    91.22MiB / 1GiB     8.91%     27.6MB / 16.7MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       4.78%     410.7MiB / 512MiB   80.22%    6.65MB / 16.7MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.19%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   291.36%   175.1MiB / 2GiB     8.55%     10.1MB / 10.8MB   0B / 20.5kB      72
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            10.14%    92.33MiB / 1GiB     9.02%     29.1MB / 17.6MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.81%     410.7MiB / 512MiB   80.22%    6.98MB / 17.6MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.16%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   288.64%   177.6MiB / 2GiB     8.67%     10.7MB / 11.5MB   0B / 20.5kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     89.08MiB / 1GiB     8.70%     30.2MB / 18.3MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.73%     410.7MiB / 512MiB   80.22%    7.18MB / 18.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.18%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.02%     167.6MiB / 2GiB     8.18%     11.1MB / 12.1MB   0B / 20.5kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     89.08MiB / 1GiB     8.70%     30.2MB / 18.3MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.04%     410.7MiB / 512MiB   80.22%    7.18MB / 18.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.895MiB / 256MiB   1.13%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     166.9MiB / 2GiB     8.15%     11.1MB / 12.1MB   0B / 20.5kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     89.08MiB / 1GiB     8.70%     30.2MB / 18.3MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.18%     410.7MiB / 512MiB   80.22%    7.18MB / 18.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.26%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     166.9MiB / 2GiB     8.15%     11.1MB / 12.1MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     89.08MiB / 1GiB     8.70%     30.2MB / 18.3MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.05%     410.7MiB / 512MiB   80.22%    7.18MB / 18.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     166.9MiB / 2GiB     8.15%     11.1MB / 12.1MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     89.08MiB / 1GiB     8.70%     30.2MB / 18.3MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.17%     410.7MiB / 512MiB   80.22%    7.18MB / 18.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.27%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     166.9MiB / 2GiB     8.15%     11.1MB / 12.1MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     89.08MiB / 1GiB     8.70%     30.2MB / 18.3MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.79%     410.7MiB / 512MiB   80.22%    7.18MB / 18.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.20%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     166.6MiB / 2GiB     8.13%     11.1MB / 12.1MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     89.08MiB / 1GiB     8.70%     30.2MB / 18.3MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.80%     410.7MiB / 512MiB   80.22%    7.18MB / 18.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.19%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     166.2MiB / 2GiB     8.11%     11.1MB / 12.1MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            76.63%    95.85MiB / 1GiB     9.36%     34.8MB / 21MB     0B / 24.6kB      19
+b2e296a96561   mysql_db                                       47.81%    410.8MiB / 512MiB   80.23%    8.16MB / 20.5MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.16%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   98.51%    171.3MiB / 2GiB     8.37%     12.9MB / 14.3MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            66.81%    168.3MiB / 1GiB     16.43%    40.5MB / 24.4MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       46.88%    410.8MiB / 512MiB   80.23%    9.49MB / 23.9MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.09%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   297.34%   256.3MiB / 2GiB     12.52%    15MB / 16.6MB     0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            56.66%    184.1MiB / 1GiB     17.98%    45.3MB / 27.6MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       51.65%    410.8MiB / 512MiB   80.23%    10.8MB / 27.1MB   459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   24.09%    238.9MiB / 2GiB     11.66%    16.9MB / 18.2MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.17%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.895MiB / 256MiB   1.13%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     237.7MiB / 2GiB     11.61%    17.2MB / 18.4MB   0B / 24.6kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.01%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     237.7MiB / 2GiB     11.61%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.80%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.17%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     237.7MiB / 2GiB     11.61%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       0.95%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.21%     2.645MiB / 256MiB   1.03%     22kB / 726B       0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     237.7MiB / 2GiB     11.61%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.13%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.27%     2.645MiB / 256MiB   1.03%     22.7kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     237.7MiB / 2GiB     11.61%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.00%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.645MiB / 256MiB   1.03%     22.9kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     237.5MiB / 2GiB     11.60%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.09%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.25%     2.645MiB / 256MiB   1.03%     22.9kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     237.4MiB / 2GiB     11.59%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.08%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.645MiB / 256MiB   1.03%     22.9kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     236.9MiB / 2GiB     11.57%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.08%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.645MiB / 256MiB   1.03%     22.9kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     236.7MiB / 2GiB     11.56%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.00%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.22%     2.645MiB / 256MiB   1.03%     22.9kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     236.4MiB / 2GiB     11.54%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.00%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.24%     2.645MiB / 256MiB   1.03%     22.9kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     235.9MiB / 2GiB     11.52%    17.2MB / 18.4MB   0B / 28.7kB      81
+CONTAINER ID   NAME                                           CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O        PIDS
+5cff13a5cff0   app                                            0.00%     183.3MiB / 1GiB     17.90%    46.2MB / 28.2MB   0B / 24.6kB      19
+b2e296a96561   mysql_db                                       1.08%     410.7MiB / 512MiB   80.22%    11MB / 27.8MB     459kB / 15.2MB   60
+3ddf6b553d50   redis                                          0.26%     2.645MiB / 256MiB   1.03%     22.9kB / 726B     0B / 0B          5
+d2b11f88f556   load-testing-from-scratch-load_test_server-1   0.00%     235.9MiB / 2GiB     11.52%    17.2MB / 18.4MB   0B / 28.7kB      81
